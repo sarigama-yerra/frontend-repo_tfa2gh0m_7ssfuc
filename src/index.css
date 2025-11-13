@@ -22,25 +22,26 @@
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Subtle card hover */
+@layer components {
+  .card {
+    @apply rounded-2xl border border-blue-100 bg-white shadow-sm;
+  }
+  .card-hover {
+    @apply transition-transform hover:-translate-y-0.5 hover:shadow-md;
+  }
+}
+
+/* Background shimmer lines */
 @layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
+  .shine {
+    background: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(59,130,246,0.08) 50%, rgba(255,255,255,0) 100%);
+    background-size: 200% 100%;
+    animation: shine 2.4s linear infinite;
   }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
+  @keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
 }
